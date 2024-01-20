@@ -19,6 +19,9 @@ function Landing() {
       <button>
         <a href="./signup">Sign Up</a>
       </button>
+      <button>
+        <a href="./challenges">Challenges</a>
+      </button>
       <p>Learn More &darr;</p>
       <h2>About Us</h2>
       <p>

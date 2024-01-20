@@ -1,0 +1,21 @@
+nav {
+  ul {
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    li {
+      a {
+        text-decoration: none;
+        color: seagreen;
+        padding: 10px 15px;
+        display: block;
+        &:hover {
+          background: darken(grey, 10%);
+        }
+      }
+    }
+  }
+}
