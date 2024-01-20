@@ -1,8 +1,10 @@
-function getCurrentYear() {
-  return new Date().getFullYear();
-}
+import "../scss/_footer.scss";
 
 function Footer() {
+  function getCurrentYear() {
+    return new Date().getFullYear();
+  }
+
   return (
     <footer>
       <p>© {getCurrentYear()} Evie</p>
