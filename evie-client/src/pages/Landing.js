@@ -13,7 +13,9 @@ function Landing() {
       <button>
         <a href="./login">Login</a>
       </button>
-      <button>Signup</button>
+      <button>
+        <a href="./signup">Sign Up</a>
+      </button>
       <p>Learn More &darr;</p>
       <h2>About Us</h2>
       <p>
