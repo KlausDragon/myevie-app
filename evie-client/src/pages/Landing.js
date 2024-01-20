@@ -1,8 +1,11 @@
 import React from "react";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 function Landing() {
   return (
     <div>
+      <Header />
       <h1>Welcome to Evie</h1>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi
@@ -24,6 +27,7 @@ function Landing() {
         culpa, dolorem quos nemo nostrum excepturi at explicabo repudiandae
         voluptatem accusantium.
       </p>
+      <Footer />
     </div>
   );
 }

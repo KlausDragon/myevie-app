@@ -1,7 +1,8 @@
 function Challenges() {
   return (
     <div>
-      <h1>Challenges</h1>
+      <h1>Eco Challenges:</h1>
+      <p>Click on each challenge to learn more!</p>
     </div>
   );
 }
