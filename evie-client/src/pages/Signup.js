@@ -1,22 +1,88 @@
+import { useState } from "react";
 import Header from "../components/Header";
+import '../scss/_signup.scss';
 
 function Signup() {
+
+  const [firstname, setFirstname] = useState('');
+  const [lastname, setLastname] = useState('');
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confpassword, setConfpassword] = useState('');
+  const handleSignup = () => {
+    // Add your Sign up logic here
+    console.log(`Signed up as: ${firstname}, ${lastname}, with username: ${username} and password: ${password}`);
+  };
+
   return (
-    <div>
+    <div className="signup-container">
       <Header />
       <h1>Sign Up</h1>
-      <form>
-        <label htmlFor="first-name">First Name</label>
-        <input type="text" id="first-name" />
-        <label htmlFor="last-name">Last Name</label>
-        <input type="text" id="last-name" />
-        <label htmlFor="email">email</label>
-        <input type="text" id="email" />
-        <label htmlFor="password">Password</label>
-        <input type="password" id="password" />
-        <label htmlFor="confirm-password">Confirm Password</label>
-        <input type="password" id="confirm-password" />
-        <button type="submit">Sign Up</button>
+      <form className="signup-form">
+        <label>
+          First name: 
+          <input
+            type="text"
+            value={firstname}
+            onChange={(e) => setFirstname(e.target.value)}
+            className="signup-input"
+          />
+        </label>
+        <br />
+        <label>
+          Last name: 
+          <input
+            type="text"
+            value={lastname}
+            onChange={(e) => setLastname(e.target.value)}
+            className="signup-input"
+          />
+        </label>
+        <br />
+        <label>
+          Email: 
+          <input
+            type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="signup-input"
+          />
+        </label>
+        <br />
+        <label>
+          Username:  
+          <input
+            type="text"
+            value={password}
+            onChange={(e) => setUsername(e.target.value)}
+            className="signup-input"
+          />
+        </label>
+        <br />
+        <label>
+          Password: 
+          <input
+            type="text"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="signup-input"
+          />
+        </label>
+        <br /> 
+        <label>
+          Confirm Password: 
+          <input
+            type="text"
+            value={confpassword}
+            onChange={(e) => setConfpassword(e.target.value)}
+            className="signup-input"
+          />
+        </label>
+        <br /> 
+        <button type="button" onClick={handleSignup} className="signup-button">
+          Sign Up
+        </button>
       </form>
     </div>
   );
