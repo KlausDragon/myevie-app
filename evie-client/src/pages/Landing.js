@@ -4,8 +4,8 @@ import Footer from "../components/Footer";
 function Landing() {
   return (
     <div>
-      <h1>Landing</h1>
-      <Footer />
+      <h1>Welcome to Evie</h1>
+
     </div>
   );
 }
