@@ -1,18 +1,20 @@
 import { useState } from "react";
 import Header from "../components/Header";
-import '../scss/_signup.scss';
+import "../scss/_signup.scss";
+import Footer from "../components/Footer";
 
 function Signup() {
-
-  const [firstname, setFirstname] = useState('');
-  const [lastname, setLastname] = useState('');
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confpassword, setConfpassword] = useState('');
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confpassword, setConfpassword] = useState("");
   const handleSignup = () => {
     // Add your Sign up logic here
-    console.log(`Signed up as: ${firstname}, ${lastname}, with username: ${username} and password: ${password}`);
+    console.log(
+      `Signed up as: ${firstname}, ${lastname}, with username: ${username} and password: ${password}`
+    );
   };
 
   return (
@@ -21,7 +23,7 @@ function Signup() {
       <h1>Sign Up</h1>
       <form className="signup-form">
         <label>
-          First name: 
+          First name:
           <input
             type="text"
             value={firstname}
@@ -31,7 +33,7 @@ function Signup() {
         </label>
         <br />
         <label>
-          Last name: 
+          Last name:
           <input
             type="text"
             value={lastname}
@@ -41,7 +43,7 @@ function Signup() {
         </label>
         <br />
         <label>
-          Email: 
+          Email:
           <input
             type="text"
             value={email}
@@ -51,7 +53,7 @@ function Signup() {
         </label>
         <br />
         <label>
-          Username:  
+          Username:
           <input
             type="text"
             value={password}
@@ -61,7 +63,7 @@ function Signup() {
         </label>
         <br />
         <label>
-          Password: 
+          Password:
           <input
             type="text"
             value={password}
@@ -69,9 +71,9 @@ function Signup() {
             className="signup-input"
           />
         </label>
-        <br /> 
+        <br />
         <label>
-          Confirm Password: 
+          Confirm Password:
           <input
             type="text"
             value={confpassword}
@@ -79,11 +81,12 @@ function Signup() {
             className="signup-input"
           />
         </label>
-        <br /> 
+        <br />
         <button type="button" onClick={handleSignup} className="signup-button">
           Sign Up
         </button>
       </form>
+      <Footer />
     </div>
   );
 }
