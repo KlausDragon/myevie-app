@@ -31,9 +31,7 @@ function Login() {
       profileContext['last_name'] = result.data['last_name'];
       profileContext['experience'] = result.data['experience'];
       profileContext['level'] = result.data['level'];
-      
-      console.log(result);
-
+      profileContext['id'] = result.data['id'];
       navigate('/challenges');
     } catch (err) {
       window.alert("Invalid Credentials");

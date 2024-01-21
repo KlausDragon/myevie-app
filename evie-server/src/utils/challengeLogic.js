@@ -24,9 +24,6 @@ function calculateReqExp(level) {
 function getProfileLevel(profileDoc, gain) {
     const { level, experience } = profileDoc;
 
-    console.log(level);
-    console.log(experience);
-    console.log(gain);
     const req = calculateReqExp(level);
 
     if (experience + gain >= req) {

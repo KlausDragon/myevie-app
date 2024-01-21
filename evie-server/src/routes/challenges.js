@@ -4,6 +4,7 @@ const CurrentChallenges = require('../models/currentChallenges');
 const weekly = require('../models/weeklyChallenges');
 const Challenges = require('../models/challenges');
 const Profile = require('../models/profile');
+const { ObjectId } = require('mongodb');
 const { isOverIncrement, getTopOfDay, generateChallenges, getProfileLevel, generateWeekly } = require('../utils/challengeLogic');
 const { clean } = require('../utils/cleanInput');
 
@@ -40,13 +41,6 @@ async function regenerateChallenges(id) {
     return await CurrentChallenges.findOne({ user: id });
 }
 
-function filterChallenges(challenges) {
-    return challenges.map((challenge) => {
-        // TODO: filtering logic
-        return challenge;
-    });
-}
-
 function buildChallengeRet(challengeId, isComplete) {
     return Challenges.findOne({ _id: challengeId })
     .then((res) => {
@@ -72,7 +66,14 @@ async function getChallengeInfo(challengeArr) {
 
 // Get Challenges
 router.get('/:id', async(req, res) => {
-    let userChallenges = await CurrentChallenges.findOne({ user: req.params.id });
+    let userChallenges;
+    try {
+        new ObjectId(req.params.id);
+    } catch (err) {
+        res.status(400).send("invalid id provided")
+    }
+
+    userChallenges = await CurrentChallenges.findOne({ user: req.params.id });
 
     // challenges doesn't exist
     if (!userChallenges) {

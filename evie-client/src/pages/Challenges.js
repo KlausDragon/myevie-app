@@ -1,7 +1,7 @@
 import Nav from "../components/Nav";
 import { useNavigate } from "react-router-dom";
 import "../scss/_challenges.scss";
-import { useState } from "react";
+import { useState, useEffect, useContext } from "react";
 import {
   Flex,
   Text,
@@ -15,9 +15,31 @@ import {
   useDisclosure,
   Button,
 } from "@chakra-ui/react";
+import { ProfileContext } from "../index";
+import axios from "axios";
 
 function Challenges() {
+
+  const profile = useContext(ProfileContext);
+  const [challenges, setChallenges] = useState(null);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const getChallenges = async () => {
+      try {
+        if (!profile.id) {
+          navigate('/login');
+          return;
+        }
+        const getChallenges = await axios.get(`${process.env.REACT_APP_SERVER}/challenge/${profile.id}`);
+        setChallenges(getChallenges.data);
+      } catch (err) {
+        navigate('/login');
+      }
+    }
+    getChallenges();
+  }, [])
+
   const [count, setCount] = useState(1);
   const handleIncrement = () => {
     setCount((prevCount) => prevCount + 1);

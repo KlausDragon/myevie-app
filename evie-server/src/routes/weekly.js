@@ -41,7 +41,7 @@ router.get('/check', async (req, res) => {
 });
 
 router.get('/', async (req, res) => {
-    console.log(await weekly.find({}));
+    // TOOD: get weekly
     res.status(200).send();
 });
 

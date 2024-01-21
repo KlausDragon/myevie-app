@@ -56,8 +56,9 @@ router.post('/login', async (req, res) => {
         return;
     }
 
-    const { first_name, last_name, experience, level } = userProfile.toJSON();
+    const { first_name, last_name, experience, level, _id } = userProfile.toJSON();
     res.status(200).send({
+        id: _id.toString(),
         first_name,
         last_name,
         experience,
