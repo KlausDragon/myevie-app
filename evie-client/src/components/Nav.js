@@ -46,6 +46,7 @@ function Nav() {
         <li className="exp-list">
           <a href="./myevie">
             <img src={ExpIcon} alt="EXP"/>
+            <span aria-hidden="true">&nbsp;</span>
           </a>
         </li>
       </ul>
