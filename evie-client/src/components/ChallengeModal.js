@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   Modal,
   ModalOverlay,
@@ -13,15 +13,33 @@ import {
   FormControl,
   FormLabel,
 } from "@chakra-ui/react";
+import axios from "axios";
+import { ProfileContext } from "../index";
 
 function ChallengeModal({ challenge, isOpen, onClose, setShowDialog }) {
   const [count, setCount] = useState(0);
   const [isChecked, setIsChecked] = useState(false);
+  const profile = useContext(ProfileContext);
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     console.log(`Submitting challenge: ${challenge.name}`);
     if (challenge.type === "daily") {
-      if (count >= challenge.objective.count) {
+      if (Number(count) >= challenge.objective.count) {
+        try {
+          console.dir(profile);
+          axios
+            .post(`${process.env.REACT_APP_SERVER}/challenge/complete`, {
+              user: profile.id,
+              challenge: challenge["_id"],
+            })
+            .then((res) => {
+              console.log(res);
+              setShowDialog(null);
+            });
+        } catch (err) {
+          console.log(err);
+        }
+
         alert(
           "Amazing work! Evie thanks you. Keep participating to watch her evolve."
         );

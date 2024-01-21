@@ -29,7 +29,9 @@ function Challenges() {
       }
     };
     getChallenges();
-  }, []);
+  }, [showDialog]);
+
+  if (!challenges) return null;
 
   return (
     <div className="challenges-wrapper">
@@ -41,13 +43,15 @@ function Challenges() {
             <div className="challenge-item" key={`challenge-${index}`}>
               <Button className="question-mark">?</Button>
               <h2>{challenge.challenge.name}</h2>
-              <Button onClick={() => setShowDialog(index)}>
-                {challenge.challenge.type} challenge
-              </Button>
+              {!challenge.isComplete && (
+                <Button onClick={() => setShowDialog(index)}>
+                  {challenge.challenge.type} challenge
+                </Button>
+              )}
               <ChallengeModal
                 challenge={challenge.challenge}
                 isOpen={showDialog === index}
-                setShowDialog={setShowDialog}
+                setShowDialog={(inp) => setShowDialog(inp)}
               />
             </div>
           );
