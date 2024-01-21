@@ -1,9 +1,9 @@
 import Nav from "../components/Nav";
-import Footer from "../components/Footer";
+import "../scss/_challenges.scss";
 
 function Challenges() {
   return (
-    <div>
+    <div className="challenges-wrapper">
       <h1>Eco Challenges:</h1>
       <p>Click on each challenge to learn more!</p>
       <div className="challenges">
@@ -17,6 +17,7 @@ function Challenges() {
           <h2>Recycling Plant</h2>
         </div>
       </div>
+      <p>More challenges to </p>
       <Nav />
     </div>
   );

@@ -6,7 +6,7 @@ function MyEvie() {
     <div className="profile-wrapper">
       <h1>Evie</h1>
       <p className="lvl">LVL: 23</p>
-      <div className="profile picture">
+      <div className="profile-picture">
         <img src="" alt="profile picture" />
       </div>
       <p className="owner-info">Owner: Lorem Ipsum</p>
