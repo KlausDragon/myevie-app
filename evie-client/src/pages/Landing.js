@@ -1,47 +1,35 @@
 import React from "react";
-import Header from "../components/Header";
 import Footer from "../components/Footer";
 import "../scss/_landing.scss";
 import Trees from "../media/trees.jpeg";
 
 function Landing() {
   return (
-    <div className="welcome-container">
-      <Header />
-      <h1 className="welcome-label">Welcome to myEvie</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi
-        consectetur accusantium sed amet porro, est ipsa dicta? Iste accusamus
-        culpa, dolorem quos nemo nostrum excepturi at explicabo repudiandae
-        voluptatem accusantium.
-      </p>
-      <br />
-      <br />
-      <div className="button-container">
-        <button className="green-button">
-          <a href="./login">Login</a>
-        </button>
-        <button className="green-button">
-          <a href="./signup">Sign Up</a>
-        </button>
-        <button className="green-button">
-          <a href="./challenges">Challenges</a>
-        </button>
+    <div className="landing-container">
+      <div className="welcome-section">
+        <h1>Welcome to myEvie</h1>
+        <p className="welcome-text">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+        <div className="auth-buttons">
+          <a href="./login" className="auth-button">
+            Login
+          </a>
+          <a href="./signup" className="auth-button signup">
+            Sign Up
+          </a>
+        </div>
+        <div className="learn-more">Learn More ↓</div>
       </div>
-      <br />
-      <br />
-      <p>Learn More &darr;</p>
-      <br />
-      <br />
-      <h2>About Us</h2>
-      <br />
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi
-        consectetur accusantium sed amet porro, est ipsa dicta? Iste accusamus
-        culpa, dolorem quos nemo nostrum excepturi at explicabo repudiandae
-        voluptatem accusantium.
-      </p>
-      <img src={Trees} alt="My Evie" class="responsive"/>
+      <div className="about-section">
+        <h2>About Us</h2>
+        <p className="about-text">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+        <img src={Trees} alt="Trees" className="trees-image" />
+      </div>
       <Footer />
     </div>
   );
