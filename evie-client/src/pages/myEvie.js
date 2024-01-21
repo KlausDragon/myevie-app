@@ -26,12 +26,12 @@ function MyEvie() {
       <div className="history">
         <h3>History: </h3>
         <div className="history-item">
-          <div className="history-title">2 bottles were recycled on:</div>
-          <div className="history-date">January 1, 2024</div>
+          <p className="history-title">2 bottles were recycled on:</p>
+          <p className="history-date">January 1, 2024</p>
         </div>
         <div className="history-item">
-          <div className="history-title">3 bottles were recycled on:</div>
-          <div className="history-date">December 30, 2023</div>
+          <p className="history-title">3 bottles were recycled on:</p>
+          <p className="history-date">December 30, 2023</p>
         </div>
         <span className="view-history">
           <a>View full history</a>
