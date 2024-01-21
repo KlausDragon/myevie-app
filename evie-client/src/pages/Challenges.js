@@ -1,4 +1,5 @@
 import Nav from "../components/Nav";
+import { useNavigate } from "react-router-dom";
 import "../scss/_challenges.scss";
 import { useState } from "react";
 import {
@@ -16,6 +17,7 @@ import {
 } from "@chakra-ui/react";
 
 function Challenges() {
+  const navigate = useNavigate();
   const [count, setCount] = useState(1);
   const handleIncrement = () => {
     setCount((prevCount) => prevCount + 1);
@@ -55,6 +57,7 @@ function Challenges() {
     onOpen: onCarFreeInfoModalOpen,
     onClose: onCarFreeInfoModalClose,
   } = useDisclosure();
+
   // ------------------------------
 
   const {
@@ -163,7 +166,18 @@ function Challenges() {
               <ModalFooter>
                 <Button
                   onClick={() => {
-                    onSuccessModalClose(); /* Navigate to MyEvie if necessary */
+                    onSuccessModalClose();
+                    if (isInfoModalOpen || isBottlesModalOpen) {
+                      onInfoModalClose();
+                      onBottlesModalClose();
+                    }
+                    if (isCarFreeInfoModalOpen || isCarFreeModalOpen) {
+                      onCarFreeInfoModalClose();
+                      onCarFreeModalClose();
+                    }
+                    setTimeout(() => {
+                      navigate("/myEvie");
+                    }, 200);
                   }}
                   backgroundColor="#78944c"
                 >
