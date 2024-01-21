@@ -2,6 +2,7 @@ import Nav from "../components/Nav";
 import "../scss/_myevie.scss";
 import evieChild from "../media/evie-1.svg";
 import chatBubble from "../media/chat-bubble.svg";
+import { CircularProgress, CircularProgressLabel } from '@chakra-ui/react';
 
 function MyEvie() {
   return (
@@ -11,8 +12,20 @@ function MyEvie() {
       <div className="chat-bubble">
         <img src={chatBubble} alt="chat bubble with text"/>
       </div>
-      <div className="profile-picture">
-        <img src={evieChild} alt="evie-child" />
+      <div className="circular-progress-container">
+        <CircularProgress
+          value={40}
+          color="green.400"
+          className="circular-progress"
+          size={{ base: '15rem', sm: '20rem', md: '30rem', lg: '40rem', xl: '50rem' }}
+          thickness='0.5rem'
+          margin='0 auto'
+          // position='absolute'
+          // z-index='1'
+        >
+          <CircularProgressLabel><img src={evieChild} alt="evie-child" className="profile-picture"/></CircularProgressLabel>
+        </CircularProgress>
+        
       </div>
       <div className="owner">
         <h2 className="owner-heading">Owner:</h2>
