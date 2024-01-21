@@ -27,10 +27,13 @@ function Login() {
         pass: password
       });
 
-      profileContext['first_name'] = result.data['firstName'];
-      profileContext['last_name'] = result.data['lastName'];
+      profileContext['first_name'] = result.data['first_name'];
+      profileContext['last_name'] = result.data['last_name'];
       profileContext['experience'] = result.data['experience'];
       profileContext['level'] = result.data['level'];
+      
+      console.log(result);
+
       navigate('/challenges');
     } catch (err) {
       window.alert("Invalid Credentials");
