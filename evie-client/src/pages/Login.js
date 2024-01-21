@@ -8,8 +8,8 @@ import { ProfileContext } from '../index';
 import { useNavigate } from "react-router-dom";
 
 function Login() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
   const profileContext = useContext(ProfileContext);
@@ -22,7 +22,7 @@ function Login() {
   const handleLogin = async () => {
     if (!username || !password) return;
     try {
-      const result = await axios.post(`${process.env.REACT_APP_SERVER}/profile/login`, {
+      const result = await axios.post(`${process.env.REACT_APP_SERVER}profile/login`, {
         user: username,
         pass: password
       });
