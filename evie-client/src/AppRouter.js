@@ -4,7 +4,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Challenges from "./pages/Challenges";
 import Help from "./pages/Help";
-import MyEvie from "./pages/MyEvie";
+import MyEvie from "./pages/myEvie";
 import Calendar from "./pages/Calendar";
 
 function AppRouter() {

@@ -158,7 +158,7 @@ function Challenges() {
               <ModalHeader>Good work! Evie is growing...</ModalHeader>
               <ModalCloseButton />
               <ModalBody>
-                <Text>Keep recycling to watch her evolve.</Text>
+                <Text>Keep participating to watch her evolve.</Text>
               </ModalBody>
               <ModalFooter>
                 <Button
@@ -252,7 +252,6 @@ function Challenges() {
           </Modal>
         </div>
       </div>
-      <p>More challenges to come...</p>
       <Nav />
     </div>
   );
