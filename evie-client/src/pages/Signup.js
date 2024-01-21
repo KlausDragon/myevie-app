@@ -38,22 +38,30 @@ function Signup() {
 
   const handleSignup = async () => {
     try {
-      
+      console.log('aefds');
       //check if passwords match
       if (password !== confpassword) {
         setPasswordError('Passwords do not match!');
         return;
       }
-      
-      const response = await axios.post('/api/signup', {firstname, lastname, username, email, password });
+      const response = await axios.put(
+        'http://localhost:5001/profile/create',
+        {
+          first_name: firstname,
+          last_name: lastname,
+          user: username,
+          email,
+          pass: password
+        }
+      );
     
       console.log('Signup successful!', response.data);
-      //setSignupSuccess(true);
+      setSignupSuccess(true);
     } catch (error) {
       console.error('Signup failed:', error.message);
 
       //For test purposes
-      setSignupSuccess(true);
+      //setSignupSuccess(true);
 
     }
   };

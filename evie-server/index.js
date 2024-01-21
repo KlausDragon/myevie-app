@@ -14,4 +14,4 @@ app.listen(5001, () => {
     console.log('server is now listening');
 });
 
-mongoose.connect('mongodb+srv://rikil:a0ljA0Z0Hy8Cdguf@eviecluster.0dgx4zw.mongodb.net/?retryWrites=true&w=majority', { dbName: 'evie' });
+mongoose.connect('mongodb+srv://willk:zJTlV8YNHrdusQlg@eviecluster.0dgx4zw.mongodb.net/?retryWrites=true&w=majority', { dbName: 'evie' });
