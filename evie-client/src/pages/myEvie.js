@@ -2,19 +2,27 @@ import React, { useState, useEffect } from 'react';
 import Nav from "../components/Nav";
 import "../scss/_myevie.scss";
 import evieChild from "../media/evie-1.svg";
+import evieTeen from "../media/evie-2.svg";
+import evieAdult from "../media/evie-3.svg";
 import chatBubble from "../media/chat-bubble.svg";
 import { CircularProgress, CircularProgressLabel } from '@chakra-ui/react';
 
 function MyEvie() {
-  const [level, setLevel] = useState(50);
-  const [xp, setXP] = useState(0);
+  const [level, setLevel] = useState(1);
+  const [xp, setXP] = useState(50);
+  const [evieImage, setEvieImage] = useState(evieChild);
 
   useEffect(() => {
     const totalXPinLevel = Math.floor(110 * (level ** 1.7));
     console.log('XP:', xp);
+
+    if (level === 10) {
+      setEvieImage(evieTeen);
+    } else if (level === 20) {
+      setEvieImage(evieAdult);
+    }
   }, [level]);
 
-console.log(Math.ceil(xp/(Math.floor(110 * (level ** 1.7)))));
   return (
     <div className="profile-wrapper">
       <h1>Evie</h1>
@@ -24,14 +32,14 @@ console.log(Math.ceil(xp/(Math.floor(110 * (level ** 1.7)))));
       </div>
       <div className="circular-progress-container">
         <CircularProgress
-          value={Math.ceil(xp/(Math.floor(110 * (level ** 1.7)))*100)}
+          value={Math.ceil(xp / (Math.floor(110 * (level ** 1.7))) * 100)}
           color="green.400"
           className="circular-progress"
           size={{ base: '15rem', sm: '20rem', md: '30rem', lg: '40rem', xl: '50rem' }}
           thickness='0.5rem'
           margin='0 auto'
         >
-          <CircularProgressLabel><img src={evieChild} alt="evie-child" className="profile-picture"/></CircularProgressLabel>
+          <CircularProgressLabel><img src={evieImage} alt="evie" className="profile-picture"/></CircularProgressLabel>
         </CircularProgress>
       </div>
       <div className="owner">
