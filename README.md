@@ -19,7 +19,7 @@ To get a local copy up and running, follow these simple steps.
   npm install npm@latest -g
   ```
 
-Installation
+## Installation
 
 1. Clone the repo
 
@@ -36,13 +36,13 @@ npm start
 This runs the app in the development mode.
 Open http://localhost:3000 to view it in your browser.
 
-Contact
+## Contact
 
 Ali - aliabbasi0@outlook.com
 Veronica - Github Profile
 Ricky - Github Profile
 
-Acknowledgements
+## Acknowledgements
 
 Chakra UI
 React Icons
