@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Header from "../components/Header";
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 import '../scss/_signup.scss';
 
 function Signup() {
@@ -14,6 +15,7 @@ function Signup() {
   const [confpassword, setConfpassword] = useState('');
   const [showconfpassword, setshowconfpassword] = useState(false);
   const [passwordError, setPasswordError] = useState('');
+  const [signupSuccess, setSignupSuccess] = useState(false);
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -23,6 +25,16 @@ function Signup() {
     setshowconfpassword(!showconfpassword);
   };
 
+  const closePopup = () => {
+    // Reset states and close the pop-up
+    setUsername('');
+    setEmail('');
+    setPassword('');
+    setConfpassword('');
+    setShowPassword(false);
+    setPasswordError('');
+    setSignupSuccess(false);
+  };
 
   const handleSignup = async () => {
     try {
@@ -36,8 +48,13 @@ function Signup() {
       const response = await axios.post('/api/signup', {firstname, lastname, username, email, password });
     
       console.log('Signup successful!', response.data);
+      //setSignupSuccess(true);
     } catch (error) {
       console.error('Signup failed:', error.message);
+
+      //For test purposes
+      setSignupSuccess(true);
+
     }
   };
   
@@ -118,6 +135,19 @@ function Signup() {
           Sign Up
         </button>
       </form>
+
+      {signupSuccess && (
+        <div className="popup-overlay">
+          <div className="popup-content">
+            <p>You successfully signed up!</p>
+            <Link to="/login" onClick={closePopup}>
+              Go to Login
+            </Link>
+          </div>
+        </div>
+      )}
+
+
     </div>
   );
 }
