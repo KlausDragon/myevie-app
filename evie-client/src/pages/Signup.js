@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Header from "../components/Header";
-<<<<<<< HEAD
 import axios from 'axios';
 import '../scss/_signup.scss';
 
@@ -18,23 +17,6 @@ function Signup() {
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
-=======
-import "../scss/_signup.scss";
-import Footer from "../components/Footer";
-
-function Signup() {
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confpassword, setConfpassword] = useState("");
-  const handleSignup = () => {
-    // Add your Sign up logic here
-    console.log(
-      `Signed up as: ${firstname}, ${lastname}, with username: ${username} and password: ${password}`
-    );
->>>>>>> 65da82524eadf3189f8ac39ece13b9d2393d9874
   };
 
   const toggleconfPasswordVisibility = () => {
@@ -66,7 +48,7 @@ function Signup() {
       <h1>Sign Up</h1>
       <form className="signup-form">
         <label>
-          First name:
+          First name: 
           <input
             type="text"
             value={firstname}
@@ -76,7 +58,7 @@ function Signup() {
         </label>
         <br />
         <label>
-          Last name:
+          Last name: 
           <input
             type="text"
             value={lastname}
@@ -86,7 +68,7 @@ function Signup() {
         </label>
         <br />
         <label>
-          Email:
+          Email: 
           <input
             type="text"
             value={email}
@@ -96,7 +78,7 @@ function Signup() {
         </label>
         <br />
         <label>
-          Username:
+          Username:  
           <input
             type="text"
             value={username}
@@ -130,16 +112,12 @@ function Signup() {
             {showconfpassword ? 'Hide' : 'Show'} Password
           </button>
         </label>
-<<<<<<< HEAD
         {passwordError && <p className="error-message">{passwordError}</p>}
-=======
->>>>>>> 65da82524eadf3189f8ac39ece13b9d2393d9874
         <br />
         <button type="button" onClick={handleSignup} className="signup-button">
           Sign Up
         </button>
       </form>
-      <Footer />
     </div>
   );
 }
