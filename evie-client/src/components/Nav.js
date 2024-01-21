@@ -11,7 +11,9 @@ function Nav() {
       <ul>
         <li>
           <a href="./challenges">
-            <img src={ChallengesIcon} alt="Challenges" />
+            <div>
+              <img src={ChallengesIcon} alt="Challenges" className="challenge-icon"/>
+            </div>
             <span>Challenges</span>
           </a>
         </li>

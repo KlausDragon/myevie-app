@@ -4,6 +4,7 @@ nav {
   position: fixed;
   bottom: 0;
   left: 0;
+  padding: 0.25rem;
 
   ul {
     list-style: none;
@@ -11,23 +12,35 @@ nav {
     margin: 0;
     display: flex;
     justify-content: space-around;
+
     li {
       display: flex;
       align-items: center;
       flex-direction: column;
+
       a {
         text-decoration: none;
         color: black;
-        padding: 10px 15px;
         display: flex;
         align-items: center;
         flex-direction: column;
+
+        img {
+          width: 50px; // Set the desired width for all icons
+          height: 50px; // Set the desired height for all icons
+          margin-bottom: 4px; // Adjust the margin as needed
+        }
+
+        .challenge-icon {
+          width: 40px;
+        }
+
+        span {
+          margin-top: 0.2rem;
+          font-size: 0.75em;
+          text-align: center;
+        }
       }
     }
-  }
-  span {
-    margin-top: 0.2rem;
-    font-size: 0.75em;
-    text-align: center;
   }
 }
