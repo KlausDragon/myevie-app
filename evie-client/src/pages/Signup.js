@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Header from "../components/Header";
+import axios from 'axios';
 import '../scss/_signup.scss';
 
 function Signup() {
@@ -9,11 +10,37 @@ function Signup() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [confpassword, setConfpassword] = useState('');
-  const handleSignup = () => {
-    // Add your Sign up logic here
-    console.log(`Signed up as: ${firstname}, ${lastname}, with username: ${username} and password: ${password}`);
+  const [showconfpassword, setshowconfpassword] = useState(false);
+  const [passwordError, setPasswordError] = useState('');
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
   };
+
+  const toggleconfPasswordVisibility = () => {
+    setshowconfpassword(!showconfpassword);
+  };
+
+
+  const handleSignup = async () => {
+    try {
+      
+      //check if passwords match
+      if (password !== confpassword) {
+        setPasswordError('Passwords do not match!');
+        return;
+      }
+      
+      const response = await axios.post('/api/signup', {firstname, lastname, username, email, password });
+    
+      console.log('Signup successful!', response.data);
+    } catch (error) {
+      console.error('Signup failed:', error.message);
+    }
+  };
+  
 
   return (
     <div className="signup-container">
@@ -54,32 +81,39 @@ function Signup() {
           Username:  
           <input
             type="text"
-            value={password}
+            value={username}
             onChange={(e) => setUsername(e.target.value)}
             className="signup-input"
           />
         </label>
         <br />
         <label>
-          Password: 
+          Password:
           <input
-            type="text"
+            type={showPassword ? 'text' : 'password'}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className="signup-input"
           />
+          <button type="button" onClick={togglePasswordVisibility} className="toggle-password-button">
+            {showPassword ? 'Hide' : 'Show'} Password
+          </button>
         </label>
-        <br /> 
+        <br />
         <label>
-          Confirm Password: 
+          Confirm Password:
           <input
-            type="text"
+            type={showconfpassword ? 'text' : 'password'}
             value={confpassword}
             onChange={(e) => setConfpassword(e.target.value)}
             className="signup-input"
           />
+          <button type="button" onClick={toggleconfPasswordVisibility} className="toggle-password-button">
+            {showconfpassword ? 'Hide' : 'Show'} Password
+          </button>
         </label>
-        <br /> 
+        {passwordError && <p className="error-message">{passwordError}</p>}
+        <br />
         <button type="button" onClick={handleSignup} className="signup-button">
           Sign Up
         </button>
