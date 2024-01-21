@@ -26,7 +26,7 @@ router.put('/create', async(req, res) => {
         email,
         experience: 0,
         level: 0,
-        friends: {},
+        friends: [],
     });
 
     try {

@@ -4,6 +4,8 @@ import MyEvieIcon from "../media/nav/tree-icon.svg";
 import CalendarIcon from "../media/nav/calendar-icon.svg";
 import ScanIcon from "../media/nav/qr-code-icon.svg";
 import HelpIcon from "../media/nav/help-icon.svg";
+import SocialIcon from "../media/nav/social-icon.svg";
+import ExpIcon from "../media/nav/exp-icon.svg";
 
 function Nav() {
   return (
@@ -36,9 +38,15 @@ function Nav() {
           </a>
         </li>
         <li>
-          <a href="./scan">
-            <img src={ScanIcon} alt="Scan" />
-            <span>Scan</span>
+          <a href="./social">
+            <img src={SocialIcon} alt="Social" />
+            <span>Social</span>
+          </a>
+        </li>
+        <li className="exp-list">
+          <a href="./myevie">
+            <img src={ExpIcon} alt="EXP"/>
+            <span aria-hidden="true">&nbsp;</span>
           </a>
         </li>
       </ul>

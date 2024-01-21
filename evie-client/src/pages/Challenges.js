@@ -91,12 +91,12 @@ function Challenges() {
       onCarFreeModalClose();
     }
   };
-
+   
   const submitRecyclingPlant = () => {};
 
   return (
     <div className="challenges-wrapper">
-      <h1>Eco Challenges:</h1>
+      <h1>Eco Challenges</h1>
       <p>Click on each challenge to learn more!</p>
       <div className="challenges">
         <div className="challenge-item bottle-recycle">
