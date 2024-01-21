@@ -9,8 +9,7 @@ function Landing() {
       <div className="welcome-section">
         <h1>Welcome to myEvie</h1>
         <p className="welcome-text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Embark on your eco-journey with our EXP system. Recycle bottles daily, go car-free weekly, and explore self-reporting. Link with Translink for easy tracking. Check in at recycling plants using Google Maps. QR Scan for extra points. Grow your EVIE avatar and connect with friends. Join the Eco-Challenge, tracking local sustainability efforts.
         </p>
         <div className="auth-buttons">
           <a href="./login" className="auth-button">
@@ -27,8 +26,7 @@ function Landing() {
       <div className="about-section">
         <h2>About Us</h2>
         <p className="about-text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        We're the brains behind a green mission. Simplifying eco-efforts through bottle recycling, car-free days, and sustainable challenges. Grow your EVIE avatar, connect with friends, and champion local sustainability. Together, let's make every small action count!
         </p>
         <img src={Trees} alt="Trees" className="trees-image" />
       </div>
