@@ -1,31 +1,21 @@
 @import "base";
 
-.challenges-wrapper {
-  width: 90%;
-  margin: 0 auto;
-}
-
-.challenges-wrapper p {
-  margin: 2rem;
-}
-
 .challenges-wrapper h1 {
   text-align: center;
   font-size: 2rem;
   margin-bottom: 2rem;
 }
 
-.challenges {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+.challenges-wrapper p {
+  margin-left: 1rem;
 }
 
 .challenges > div {
   background-color: #e0dca4;
   border-radius: 10px;
-  padding: 1em;
+  padding: 2em;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 1rem;
 }
 
 .challenges h2 {
@@ -53,5 +43,18 @@
     margin-top: 10px;
     font-weight: bold;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .challenges {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 auto;
+  }
+  .challenges > div {
+    width: 45%;
   }
 }

@@ -1,9 +1,9 @@
 import "../scss/_nav.scss";
-import ChallengesIcon from "../media/challenges.svg";
-import MyEvieIcon from "../media/myevie.svg";
-import CalendarIcon from "../media/calendar.svg";
-import ScanIcon from "../media/scan.svg";
-import HelpIcon from "../media/help.svg";
+import ChallengesIcon from "../media/nav/challenges-icon.svg";
+import MyEvieIcon from "../media/nav/tree-icon.svg";
+import CalendarIcon from "../media/nav/calendar-icon.svg";
+import ScanIcon from "../media/nav/qr-code-icon.svg";
+import HelpIcon from "../media/nav/help-icon.svg";
 
 function Nav() {
   return (

@@ -1,5 +1,6 @@
 import Nav from "../components/Nav";
 import "../scss/_myevie.scss";
+import evieChild from "../media/evie-1.svg";
 
 function MyEvie() {
   return (
@@ -7,7 +8,7 @@ function MyEvie() {
       <h1>Evie</h1>
       <p className="lvl">LVL: 23</p>
       <div className="profile-picture">
-        <img src="" alt="profile picture" />
+        <img src={evieChild} alt="evie-child" />
       </div>
       <h2 className="owner-heading">Owner:</h2>
       <p className="owner-name">John Smith</p>
