@@ -7,7 +7,7 @@ function MyEvie() {
       <h1>Evie</h1>
       <p>LVL: 23</p>
       <div className="profile picture">
-        <img src="https://i.imgur.com/5rJXNl8.png" alt="profile picture" />
+        <img src="" alt="profile picture" />
       </div>
       <p>Owner: Lorem Ipsum</p>
       <p>Total Challenges Completed: 1</p>
