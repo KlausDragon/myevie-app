@@ -6,11 +6,13 @@ import HelpIcon from "../media/nav/help-icon.svg";
 import SocialIcon from "../media/nav/social-icon.svg";
 
 function Nav() {
+  const navigate = useNavigate();
+
   return (
     <nav>
       <ul>
         <li>
-          <a href="./challenges">
+          <a onClick={() => navigate("/challenges")}>
             <div>
               <img
                 src={ChallengesIcon}
@@ -22,25 +24,25 @@ function Nav() {
           </a>
         </li>
         <li>
-          <a href="./myevie">
+          <a onClick={() => navigate("/myevie")}>
             <img src={MyEvieIcon} alt="My Evie" />
             <span>My Evie</span>
           </a>
         </li>
         <li>
-          <a href="./calendar">
+          <a onClick={() => navigate("/calendar")}>
             <img src={CalendarIcon} alt="Calendar" />
             <span>Calendar</span>
           </a>
         </li>
         <li>
-          <a href="./help">
+          <a onClick={() => navigate("/help")}>
             <img src={HelpIcon} alt="Help" />
             <span>Help</span>
           </a>
         </li>
         <li>
-          <a href="./social">
+          <a onClick={() => navigate("/social")}>
             <img src={SocialIcon} alt="Social" />
             <span>Social</span>
           </a>

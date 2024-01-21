@@ -18,15 +18,12 @@ function getTopOfDay(date) {
 }
 
 function calculateReqExp(level) {
-    return Math.floor(200 * (level ^ (1.7)));
+    return Math.floor(150 + 110 * (profile.level ** 1.7));
 }
 
 function getProfileLevel(profileDoc, gain) {
     const { level, experience } = profileDoc;
 
-    console.log(level);
-    console.log(experience);
-    console.log(gain);
     const req = calculateReqExp(level);
 
     if (experience + gain >= req) {
