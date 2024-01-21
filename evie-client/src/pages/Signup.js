@@ -1,20 +1,20 @@
 import { useState } from "react";
-import Header from "../components/Header";
-import axios from 'axios';
-import {Link} from 'react-router-dom';
-import '../scss/_signup.scss';
+import axios from "axios";
+import { Link } from "react-router-dom";
+import "../scss/_signup.scss";
+import Footer from "../components/Footer";
+import LineOfTrees from "../media/line-of-trees.svg";
 
 function Signup() {
-
-  const [firstname, setFirstname] = useState('');
-  const [lastname, setLastname] = useState('');
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [confpassword, setConfpassword] = useState('');
+  const [confpassword, setConfpassword] = useState("");
   const [showconfpassword, setshowconfpassword] = useState(false);
-  const [passwordError, setPasswordError] = useState('');
+  const [passwordError, setPasswordError] = useState("");
   const [signupSuccess, setSignupSuccess] = useState(false);
 
   const togglePasswordVisibility = () => {
@@ -26,54 +26,47 @@ function Signup() {
   };
 
   const closePopup = () => {
-    // Reset states and close the pop-up
-    setUsername('');
-    setEmail('');
-    setPassword('');
-    setConfpassword('');
+    setUsername("");
+    setEmail("");
+    setPassword("");
+    setConfpassword("");
     setShowPassword(false);
-    setPasswordError('');
+    setPasswordError("");
     setSignupSuccess(false);
   };
 
   const handleSignup = async () => {
     try {
-      console.log('aefds');
-      //check if passwords match
+      console.log("aefds");
       if (password !== confpassword) {
-        setPasswordError('Passwords do not match!');
+        setPasswordError("Passwords do not match!");
         return;
       }
-      const response = await axios.put(
-        'http://localhost:5001/profile/create',
-        {
-          first_name: firstname,
-          last_name: lastname,
-          user: username,
-          email,
-          pass: password
-        }
-      );
-    
-      console.log('Signup successful!', response.data);
+      const response = await axios.put("http://localhost:5001/profile/create", {
+        first_name: firstname,
+        last_name: lastname,
+        user: username,
+        email,
+        pass: password,
+      });
+
+      console.log("Signup successful!", response.data);
       setSignupSuccess(true);
     } catch (error) {
-      console.error('Signup failed:', error.message);
+      console.error("Signup failed:", error.message);
 
       //For test purposes
       //setSignupSuccess(true);
-
     }
   };
-  
 
   return (
     <div className="signup-container">
-      <Header />
       <h1>Sign Up</h1>
+      <img src={LineOfTrees} alt="Line of Trees" className="line-of-trees" />
       <form className="signup-form">
         <label>
-          First name: 
+          First name:
           <input
             type="text"
             value={firstname}
@@ -83,7 +76,7 @@ function Signup() {
         </label>
         <br />
         <label>
-          Last name: 
+          Last name:
           <input
             type="text"
             value={lastname}
@@ -93,7 +86,7 @@ function Signup() {
         </label>
         <br />
         <label>
-          Email: 
+          Email:
           <input
             type="text"
             value={email}
@@ -103,7 +96,7 @@ function Signup() {
         </label>
         <br />
         <label>
-          Username:  
+          Username:
           <input
             type="text"
             value={username}
@@ -115,35 +108,42 @@ function Signup() {
         <label>
           Password:
           <input
-            type={showPassword ? 'text' : 'password'}
+            type={showPassword ? "text" : "password"}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className="signup-input"
           />
-          <button type="button" onClick={togglePasswordVisibility} className="toggle-password-button">
-            {showPassword ? 'Hide' : 'Show'} Password
+          <button
+            type="button"
+            onClick={togglePasswordVisibility}
+            className="toggle-password-button"
+          >
+            {showPassword ? "Hide" : "Show"} Password
           </button>
         </label>
         <br />
         <label>
           Confirm Password:
           <input
-            type={showconfpassword ? 'text' : 'password'}
+            type={showconfpassword ? "text" : "password"}
             value={confpassword}
             onChange={(e) => setConfpassword(e.target.value)}
             className="signup-input"
           />
-          <button type="button" onClick={toggleconfPasswordVisibility} className="toggle-password-button">
-            {showconfpassword ? 'Hide' : 'Show'} Password
+          <button
+            type="button"
+            onClick={toggleconfPasswordVisibility}
+            className="toggle-password-button"
+          >
+            {showconfpassword ? "Hide" : "Show"} Password
           </button>
         </label>
         {passwordError && <p className="error-message">{passwordError}</p>}
         <br />
-        <button type="button" onClick={handleSignup} className="signup-button">
+        <button type="submit" onClick={handleSignup} className="signup-button">
           Sign Up
         </button>
       </form>
-
       {signupSuccess && (
         <div className="popup-overlay">
           <div className="popup-content">
@@ -154,8 +154,7 @@ function Signup() {
           </div>
         </div>
       )}
-
-
+      <Footer />
     </div>
   );
 }
