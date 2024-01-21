@@ -56,7 +56,16 @@ function Challenges() {
     }
   };
 
-  const submitCarFreeDay = () => {};
+  const submitCarFreeDay = () => {
+    if (document.getElementById("car-free").checked) {
+      console.log("Car-free day!");
+      onCarFreeModalClose();
+      onSuccessModalOpen();
+    } else {
+      console.log("Not car-free day.");
+      onCarFreeModalClose();
+    }
+  };
 
   const submitRecyclingPlant = () => {};
 
@@ -77,16 +86,20 @@ function Challenges() {
               <ModalCloseButton />
               <ModalBody>
                 <Flex justify="center" align="center">
-                  <Button onClick={handleDecrement}>-</Button>
+                  <Button onClick={handleDecrement} backgroundColor="#78944c">
+                    -
+                  </Button>
                   <Text fontSize="2xl" mx={4}>
                     {count}
                   </Text>
-                  <Button onClick={handleIncrement}>+</Button>
+                  <Button onClick={handleIncrement} backgroundColor="#78944c">
+                    +
+                  </Button>
                 </Flex>
               </ModalBody>
               <ModalFooter>
                 <Button
-                  colorScheme="blue"
+                  backgroundColor="#78944c"
                   mr={3}
                   onClick={submitBottlesRecycled}
                 >
@@ -105,10 +118,10 @@ function Challenges() {
               </ModalBody>
               <ModalFooter>
                 <Button
-                  colorScheme="blue"
                   onClick={() => {
                     onSuccessModalClose(); /* Navigate to MyEvie if necessary */
                   }}
+                  backgroundColor="#78944c"
                 >
                   View MyEvie
                 </Button>
@@ -133,7 +146,11 @@ function Challenges() {
                 <input type="checkbox" name="car-free" id="car-free" />
               </ModalBody>
               <ModalFooter>
-                <Button colorScheme="blue" mr={3} onClick={submitCarFreeDay}>
+                <Button
+                  backgroundColor="#78944c"
+                  mr={3}
+                  onClick={submitCarFreeDay}
+                >
                   Submit
                 </Button>
               </ModalFooter>
@@ -149,10 +166,10 @@ function Challenges() {
           >
             <ModalOverlay />
             <ModalContent>
-              <ModalHeader></ModalHeader>
+              <ModalHeader>...</ModalHeader>
               <ModalCloseButton />
               <ModalBody>
-                <p>Enter the</p>
+                <p></p>
                 <input type="text" name="name" />
               </ModalBody>
               <ModalFooter>
