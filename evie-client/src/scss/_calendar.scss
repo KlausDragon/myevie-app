@@ -1,0 +1,68 @@
+@import "base";
+
+.calendar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin-bottom: 4rem;
+}
+
+.calendar-header {
+  text-align: center;
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+
+  .dot {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+    margin-left: 20px;
+  }
+
+  .car-free {
+    background-color: red;
+  }
+
+  .recycling-plant {
+    background-color: green;
+  }
+}
+
+.calendar-main {
+  margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.upcoming-challenges {
+  width: 100%;
+  margin-top: 20px;
+
+  h2 {
+    border-bottom: 1px solid black;
+    padding-bottom: 5px;
+  }
+
+  .challenge-item {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+  }
+
+  .challenge-title {
+    font-weight: bold;
+  }
+
+  .challenge-date {
+    padding-top: 5px;
+  }
+}

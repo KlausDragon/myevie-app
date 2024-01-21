@@ -9,14 +9,24 @@ function MyEvie() {
       <div className="profile-picture">
         <img src="" alt="profile picture" />
       </div>
-      <p className="owner-info">Owner: Lorem Ipsum</p>
-      <p className="total-challenges">Total Challenges Completed: 1</p>
-      <p className="history">History: </p>
-      <p className="first-log">2 bottles were recycled on January 1, 2024</p>
-      <p className="second-log">3 bottles were recycled on December 30, 2023</p>
-      <span className="view-history">
-        <a>View full history</a>
-      </span>
+      <h2 className="owner-heading">Owner:</h2>
+      <p className="owner-name">John Smith</p>
+      <h2 className="total-challenges">Total Challenges Completed:</h2>
+      <p>1</p>
+      <div className="history">
+        <h3>History: </h3>
+        <div className="history-item">
+          <div className="history-title">2 bottles were recycled on:</div>
+          <div className="history-date">January 1, 2024</div>
+        </div>
+        <div className="history-item">
+          <div className="history-title">3 bottles were recycled on:</div>
+          <div className="history-date">December 30, 2023</div>
+        </div>
+        <span className="view-history">
+          <a>View full history</a>
+        </span>
+      </div>
       <Nav />
     </div>
   );

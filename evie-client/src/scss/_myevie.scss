@@ -1,3 +1,5 @@
+@import "base";
+
 .profile-wrapper {
   width: 85%;
   margin: 0 auto;
@@ -14,16 +16,28 @@
   .profile-picture {
     margin: 3rem auto;
     text-align: center;
-    img {
-    }
-  }
-  .owner-info {
-    font-size: 1.2rem;
-    font-weight: 500;
   }
   .history {
-    margin-top: 3rem;
-    border-bottom: 1px solid rgb(77, 60, 60);
+    width: 100%;
+    margin-top: 20px;
+
+    h3 {
+      border-bottom: 1px solid black;
+      padding-bottom: 5px;
+    }
+
+    .history-item {
+      border-bottom: 1px solid #ccc;
+      padding: 10px 0;
+    }
+
+    .history-title {
+      font-weight: bold;
+    }
+
+    .history-date {
+      padding-top: 5px;
+    }
   }
   .view-history {
     display: block;

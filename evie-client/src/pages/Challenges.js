@@ -17,7 +17,7 @@ function Challenges() {
           <h2>Recycling Plant</h2>
         </div>
       </div>
-      <p>More challenges to </p>
+      <p>More challenges to come...</p>
       <Nav />
     </div>
   );
