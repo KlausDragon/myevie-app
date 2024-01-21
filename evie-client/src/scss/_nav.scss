@@ -5,8 +5,8 @@ nav {
   bottom: 0;
   left: 0;
   padding: 0.25rem;
-  
-  .exp-list img{
+
+  .exp-list img {
     display: none;
   }
   ul {
@@ -21,19 +21,18 @@ nav {
       align-items: center;
       flex-direction: column;
 
-      
       a {
         text-decoration: none;
         color: black;
         display: flex;
         align-items: center;
         flex-direction: column;
-        
+
         img {
           width: 50px;
           height: 50px;
         }
-        
+
         .challenge-icon {
           width: 40px;
         }
@@ -47,30 +46,30 @@ nav {
   }
 }
 
-@media(min-width: 48rem){
-  nav{
+@media (min-width: 48rem) {
+  nav {
     position: fixed;
     top: 0;
     bottom: auto;
-    padding: 1rem;
 
-    a:active,a:focus, a:hover{
+    a:active,
+    a:focus,
+    a:hover {
       border-bottom: 1px solid black;
     }
 
     ul {
       align-items: center;
     }
-    img{
+    img {
       display: none;
     }
-
-    .exp-list img{
+    .exp-list img {
       display: block;
     }
 
-    li{
-      font-size: 2rem;
+    li {
+      font-size: 1.7rem;
     }
   }
 }

@@ -2,7 +2,6 @@ import "../scss/_nav.scss";
 import ChallengesIcon from "../media/nav/challenges-icon.svg";
 import MyEvieIcon from "../media/nav/tree-icon.svg";
 import CalendarIcon from "../media/nav/calendar-icon.svg";
-import ScanIcon from "../media/nav/qr-code-icon.svg";
 import HelpIcon from "../media/nav/help-icon.svg";
 import SocialIcon from "../media/nav/social-icon.svg";
 import ExpIcon from "../media/nav/exp-icon.svg";
@@ -14,7 +13,11 @@ function Nav() {
         <li>
           <a href="./challenges">
             <div>
-              <img src={ChallengesIcon} alt="Challenges" className="challenge-icon"/>
+              <img
+                src={ChallengesIcon}
+                alt="Challenges"
+                className="challenge-icon"
+              />
             </div>
             <span>Challenges</span>
           </a>
@@ -45,7 +48,7 @@ function Nav() {
         </li>
         <li className="exp-list">
           <a href="./myevie">
-            <img src={ExpIcon} alt="EXP"/>
+            <img src={ExpIcon} alt="EXP" />
             <span aria-hidden="true">&nbsp;</span>
           </a>
         </li>

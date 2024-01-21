@@ -5,11 +5,11 @@
   margin: 0 auto;
   margin-bottom: 6rem;
 
-  .circular-progress-container{
+  .circular-progress-container {
     display: flex;
     justify-content: center;
   }
-  h1{
+  h1 {
     margin: 0;
     margin-top: 2rem;
   }
@@ -34,10 +34,11 @@
     position: relative;
   }
 
-  h2{
+  h2 {
     font-weight: bold;
   }
-  .owner, .total-challenge {
+  .owner,
+  .total-challenge {
     background-color: #93a50c60;
     border-radius: 1rem;
     padding: 0.5rem;
@@ -83,29 +84,29 @@
   }
 }
 
-@media (min-width: 48rem){
-  .profile-wrapper{
+@media (min-width: 48rem) {
+  .profile-wrapper {
     .chat-bubble img {
       max-width: 30%;
       right: 3rem;
     }
-    p{
-      font-size: 2rem;
+    p {
+      font-size: 1.3rem;
     }
-    h1{
+    h1 {
       font-size: 3rem;
       margin-top: 9rem;
     }
-    h2, h3{
+    h2,
+    h3 {
       font-size: 2rem;
     }
     .lvl {
       font-size: 2rem;
       text-align: center;
     }
-    .view-history a{
+    .view-history a {
       font-size: 2rem;
     }
   }
-  
 }
