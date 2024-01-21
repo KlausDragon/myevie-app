@@ -1,6 +1,9 @@
 import Nav from "../components/Nav";
 import "../scss/_challenges.scss";
+import { useState } from "react";
 import {
+  Flex,
+  Text,
   Modal,
   ModalOverlay,
   ModalContent,
@@ -13,10 +16,24 @@ import {
 } from "@chakra-ui/react";
 
 function Challenges() {
+  const [count, setCount] = useState(1);
+  const handleIncrement = () => {
+    setCount((prevCount) => prevCount + 1);
+  };
+  const handleDecrement = () => {
+    setCount((prevCount) => prevCount - 1);
+  };
+
   const {
     isOpen: isBottlesModalOpen,
     onOpen: onBottlesModalOpen,
     onClose: onBottlesModalClose,
+  } = useDisclosure();
+
+  const {
+    isOpen: isSuccessModalOpen,
+    onOpen: onSuccessModalOpen,
+    onClose: onSuccessModalClose,
   } = useDisclosure();
 
   const {
@@ -31,7 +48,13 @@ function Challenges() {
     onClose: onRecyclingPlantModalClose,
   } = useDisclosure();
 
-  const submitBottlesRecycled = () => {};
+  const submitBottlesRecycled = () => {
+    if (count > 0) {
+      console.log("Bottles recycled: ", count);
+      onBottlesModalClose();
+      onSuccessModalOpen();
+    }
+  };
 
   const submitCarFreeDay = () => {};
 
@@ -48,18 +71,46 @@ function Challenges() {
           <Modal isOpen={isBottlesModalOpen} onClose={onBottlesModalClose}>
             <ModalOverlay />
             <ModalContent>
-              <ModalHeader></ModalHeader>
+              <ModalHeader>
+                Enter the number of bottles or cans you recycled today.
+              </ModalHeader>
               <ModalCloseButton />
               <ModalBody>
-                <p>Enter the number of bottles or cans you recycled today.</p>
+                <Flex justify="center" align="center">
+                  <Button onClick={handleDecrement}>-</Button>
+                  <Text fontSize="2xl" mx={4}>
+                    {count}
+                  </Text>
+                  <Button onClick={handleIncrement}>+</Button>
+                </Flex>
               </ModalBody>
               <ModalFooter>
                 <Button
                   colorScheme="blue"
                   mr={3}
-                  onClick={submitRecyclingPlant()}
+                  onClick={submitBottlesRecycled}
                 >
                   Submit
+                </Button>
+              </ModalFooter>
+            </ModalContent>
+          </Modal>
+          <Modal isOpen={isSuccessModalOpen} onClose={onSuccessModalClose}>
+            <ModalOverlay />
+            <ModalContent>
+              <ModalHeader>Good work! Evie is growing...</ModalHeader>
+              <ModalCloseButton />
+              <ModalBody>
+                <Text>Keep recycling to watch her evolve.</Text>
+              </ModalBody>
+              <ModalFooter>
+                <Button
+                  colorScheme="blue"
+                  onClick={() => {
+                    onSuccessModalClose(); /* Navigate to MyEvie if necessary */
+                  }}
+                >
+                  View MyEvie
                 </Button>
               </ModalFooter>
             </ModalContent>
@@ -75,13 +126,14 @@ function Challenges() {
               <ModalCloseButton />
               <ModalBody>
                 <p>
-                  This challenge will unlock again in 6 days. For every car-free
-                  day, you will gain 1000 EXP.{" "}
+                  Did you refrain from driving today? If so, check the box
+                  below:
                 </p>
-                <p>NOTE: This is a weekly challenge.</p>
+                <label for="car-free">Car-Free Day </label>
+                <input type="checkbox" name="car-free" id="car-free" />
               </ModalBody>
               <ModalFooter>
-                <Button colorScheme="blue" mr={3} onClick={submitCarFreeDay()}>
+                <Button colorScheme="blue" mr={3} onClick={submitCarFreeDay}>
                   Submit
                 </Button>
               </ModalFooter>
