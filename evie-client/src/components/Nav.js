@@ -5,6 +5,7 @@ import CalendarIcon from "../media/nav/calendar-icon.svg";
 import ScanIcon from "../media/nav/qr-code-icon.svg";
 import HelpIcon from "../media/nav/help-icon.svg";
 import SocialIcon from "../media/nav/social-icon.svg";
+import ExpIcon from "../media/nav/exp-icon.svg";
 
 function Nav() {
   return (
@@ -40,6 +41,11 @@ function Nav() {
           <a href="./social">
             <img src={SocialIcon} alt="Social" />
             <span>Social</span>
+          </a>
+        </li>
+        <li>
+          <a href="./myevie">
+            <img src={ExpIcon} alt="EXP"/>
           </a>
         </li>
       </ul>

@@ -45,6 +45,17 @@ nav {
 
 @media(min-width: 48rem){
   nav{
+    position: fixed;
+    top: 0;
+    bottom: auto;
+    padding: 1rem;
+
+    img{
+      display: none;
+    }
     
+    li{
+      font-size: 2rem;
+    }
   }
 }
