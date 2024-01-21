@@ -42,3 +42,7 @@ Chakra UI
 React Icons
 Axios
 NWHacks
+
+### Main Languages
+
+MERN (MongoDB, ExpressJS, ReactJS, NodeJS)
