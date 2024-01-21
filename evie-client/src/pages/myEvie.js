@@ -8,7 +8,7 @@ import chatBubble from "../media/chat-bubble.svg";
 import { CircularProgress, CircularProgressLabel } from '@chakra-ui/react';
 
 function MyEvie() {
-  const [level, setLevel] = useState(1);
+  const [level, setLevel] = useState(10);
   const [xp, setXP] = useState(50);
   const [evieImage, setEvieImage] = useState(evieChild);
 
@@ -22,6 +22,7 @@ function MyEvie() {
       setEvieImage(evieAdult);
     }
   }, [level]);
+  
 
   return (
     <div className="profile-wrapper">
