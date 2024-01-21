@@ -14,11 +14,15 @@ function MyEvie() {
       <div className="profile-picture">
         <img src={evieChild} alt="evie-child" />
       </div>
-      <h2 className="owner-heading">Owner:</h2>
-      <p className="owner-name">John Smith</p>
+      <div className="owner">
+        <h2 className="owner-heading">Owner:</h2>
+        <p className="owner-name">John Smith</p>
+      </div>
       <br></br>
-      <h2 className="total-challenges">Total Challenges Completed:</h2>
-      <p>1</p>
+      <div className="total-challenge">
+        <h2 className="total-challenges">Total Challenges Completed:</h2>
+        <p>1</p>
+      </div>
       <div className="history">
         <h3>History: </h3>
         <div className="history-item">

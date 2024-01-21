@@ -4,7 +4,7 @@
   width: 85%;
   margin: 0 auto;
   margin-bottom: 6rem;
-  
+
   h1{
     margin: 0;
     margin-top: 2rem;
@@ -14,18 +14,34 @@
     position: absolute;
     top: 3rem;
     right: 0;
-    width: 50%;
+    max-width: 40%;
   }
 
   .lvl {
-    font-size: 0.8rem;
+    font-size: 1rem;
     text-align: center;
   }
-  .profile-picture {
+  .profile-picture img {
     margin: 3rem auto;
     text-align: center;
-    width: 60%;
+    max-width: 40%;
+    margin: 0 auto;
   }
+
+  h2{
+    font-weight: bold;
+  }
+  .owner, .total-challenge {
+    background-color: #93a50c60;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    text-align: center;
+  }
+
+  .owner {
+    margin-top: 1rem;
+  }
+
   .history {
     width: 100%;
     margin-top: 20px;
@@ -59,4 +75,15 @@
       color: black;
     }
   }
+}
+
+@media (min-width: 48rem){
+  .profile-wrapper{
+    .chat-bubble img {
+      max-width: 30%;
+      right: 3rem;
+    }
+
+  }
+  
 }
