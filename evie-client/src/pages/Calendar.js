@@ -25,11 +25,11 @@ function Calendar() {
         <h2>Upcoming Challenges:</h2>
         <div className="challenge-item">
           <div className="challenge-title">Next car-free day:</div>
-          <div className="challenge-date">January 1, 2024</div>
+          <div className="challenge-date">January 21, 2024</div>
         </div>
         <div className="challenge-item">
           <div className="challenge-title">Next recycling plant day:</div>
-          <div className="challenge-date">January 2, 2024</div>
+          <div className="challenge-date">January 22, 2024</div>
         </div>
       </div>
       <Nav />

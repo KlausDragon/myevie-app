@@ -1,19 +1,24 @@
 @import "base";
 
 .challenges-wrapper {
-  text-align: center;
   width: 90%;
   margin: 0 auto;
 }
 
+.challenges-wrapper p {
+  margin: 2rem;
+}
+
 .challenges-wrapper h1 {
-  margin-bottom: 1em;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
 }
 
 .challenges {
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: 1.5rem;
 }
 
 .challenges > div {
@@ -21,26 +26,4 @@
   border-radius: 10px;
   padding: 1em;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  position: relative; /* For absolute positioning of the circle and question mark */
-}
-
-.challenges > div::before {
-  content: "";
-  display: block;
-  width: 60px;
-  height: 60px;
-  background-color: white;
-  border-radius: 50%;
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow for the circle */
-}
-
-.challenges > div h2 {
-  margin: 0;
-  padding-top: 2rem;
-  padding-left: 100px;
-  text-align: left;
-  font-size: 1.25em;
 }

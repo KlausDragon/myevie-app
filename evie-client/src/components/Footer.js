@@ -6,7 +6,7 @@ function Footer() {
   }
 
   return (
-    <footer>
+    <footer className="app-footer">
       <p>© {getCurrentYear()} Evie</p>
     </footer>
   );
