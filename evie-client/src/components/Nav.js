@@ -46,12 +46,6 @@ function Nav() {
             <span>Social</span>
           </a>
         </li>
-        <li className="exp-list">
-          <a href="./myevie">
-            <img src={ExpIcon} alt="EXP" />
-            <span aria-hidden="true">&nbsp;</span>
-          </a>
-        </li>
       </ul>
     </nav>
   );
