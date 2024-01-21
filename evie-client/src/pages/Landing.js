@@ -20,7 +20,9 @@ function Landing() {
             Sign Up
           </a>
         </div>
-        <div className="learn-more">Learn More ↓</div>
+        <div className="learn-more">
+          <a href="./challenges">Learn More ↓</a>
+        </div>
       </div>
       <div className="about-section">
         <h2>About Us</h2>
