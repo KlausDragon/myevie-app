@@ -1,21 +1,46 @@
 import { useState } from "react";
 import Header from "../components/Header";
-import "../scss/_signup.scss";
-import Footer from "../components/Footer";
+import axios from 'axios';
+import '../scss/_signup.scss';
 
 function Signup() {
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confpassword, setConfpassword] = useState("");
-  const handleSignup = () => {
-    // Add your Sign up logic here
-    console.log(
-      `Signed up as: ${firstname}, ${lastname}, with username: ${username} and password: ${password}`
-    );
+
+  const [firstname, setFirstname] = useState('');
+  const [lastname, setLastname] = useState('');
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [confpassword, setConfpassword] = useState('');
+  const [showconfpassword, setshowconfpassword] = useState(false);
+  const [passwordError, setPasswordError] = useState('');
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
   };
+
+  const toggleconfPasswordVisibility = () => {
+    setshowconfpassword(!showconfpassword);
+  };
+
+
+  const handleSignup = async () => {
+    try {
+      
+      //check if passwords match
+      if (password !== confpassword) {
+        setPasswordError('Passwords do not match!');
+        return;
+      }
+      
+      const response = await axios.post('/api/signup', {firstname, lastname, username, email, password });
+    
+      console.log('Signup successful!', response.data);
+    } catch (error) {
+      console.error('Signup failed:', error.message);
+    }
+  };
+  
 
   return (
     <div className="signup-container">
@@ -23,7 +48,7 @@ function Signup() {
       <h1>Sign Up</h1>
       <form className="signup-form">
         <label>
-          First name:
+          First name: 
           <input
             type="text"
             value={firstname}
@@ -33,7 +58,7 @@ function Signup() {
         </label>
         <br />
         <label>
-          Last name:
+          Last name: 
           <input
             type="text"
             value={lastname}
@@ -43,7 +68,7 @@ function Signup() {
         </label>
         <br />
         <label>
-          Email:
+          Email: 
           <input
             type="text"
             value={email}
@@ -53,10 +78,10 @@ function Signup() {
         </label>
         <br />
         <label>
-          Username:
+          Username:  
           <input
             type="text"
-            value={password}
+            value={username}
             onChange={(e) => setUsername(e.target.value)}
             className="signup-input"
           />
@@ -65,28 +90,34 @@ function Signup() {
         <label>
           Password:
           <input
-            type="text"
+            type={showPassword ? 'text' : 'password'}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className="signup-input"
           />
+          <button type="button" onClick={togglePasswordVisibility} className="toggle-password-button">
+            {showPassword ? 'Hide' : 'Show'} Password
+          </button>
         </label>
         <br />
         <label>
           Confirm Password:
           <input
-            type="text"
+            type={showconfpassword ? 'text' : 'password'}
             value={confpassword}
             onChange={(e) => setConfpassword(e.target.value)}
             className="signup-input"
           />
+          <button type="button" onClick={toggleconfPasswordVisibility} className="toggle-password-button">
+            {showconfpassword ? 'Hide' : 'Show'} Password
+          </button>
         </label>
+        {passwordError && <p className="error-message">{passwordError}</p>}
         <br />
         <button type="button" onClick={handleSignup} className="signup-button">
           Sign Up
         </button>
       </form>
-      <Footer />
     </div>
   );
 }
