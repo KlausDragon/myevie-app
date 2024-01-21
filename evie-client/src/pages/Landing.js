@@ -7,10 +7,11 @@ function Landing() {
   return (
     <div className="landing-container">
       <div className="welcome-section">
-        <h1>Welcome to myEvie</h1>
-        <p className="welcome-text">
-        Embark on your eco-journey with our EXP system. Recycle bottles daily, go car-free weekly, and explore self-reporting. Link with Translink for easy tracking. Check in at recycling plants using Google Maps. QR Scan for extra points. Grow your EVIE avatar and connect with friends. Join the Eco-Challenge, tracking local sustainability efforts.
-        </p>
+        <div className="welcome-evie">
+          <h1>Welcome to myEvie</h1>
+          <p className="welcome-text">
+          Embark on your eco-journey with our EXP system. Recycle bottles daily, go car-free weekly, and explore self-reporting. Link with Translink for easy tracking. Check in at recycling plants using Google Maps. QR Scan for extra points. Grow your EVIE avatar and connect with friends. Join the Eco-Challenge, tracking local sustainability efforts.
+          </p>
         <div className="auth-buttons">
           <a href="./login" className="auth-button">
             Login
@@ -18,6 +19,7 @@ function Landing() {
           <a href="./signup" className="auth-button signup">
             Sign Up
           </a>
+        </div>
         </div>
         <div className="learn-more">
           <a href="./challenges">Learn More ↓</a>
