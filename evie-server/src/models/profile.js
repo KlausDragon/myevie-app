@@ -10,7 +10,7 @@ const profileSchema = new Schema(
         email: Schema.Types.String,
         experience: Schema.Types.Number,
         level: Schema.Types.Number,
-        friends: Schema.Types.Map,
+        friends: Schema.Types.Array,
     },
 
 );

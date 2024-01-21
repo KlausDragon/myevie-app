@@ -5,8 +5,8 @@ const friendRequestSchema = new Schema(
     {
         user1: Schema.Types.ObjectId,
         user2: Schema.Types.ObjectId,
-        response1: Schema.Types.Boolean,
-        response2: Schema.Types.Boolean,
+        response1: Schema.Types.String,
+        response2: Schema.Types.String,
     },
 );
 
