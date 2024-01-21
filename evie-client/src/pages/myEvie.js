@@ -3,7 +3,7 @@ import "../scss/_myevie.scss";
 
 function MyEvie() {
   return (
-    <div>
+    <div className="profile-wrapper">
       <h1>Evie</h1>
       <p>LVL: 23</p>
       <div className="profile picture">
