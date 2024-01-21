@@ -22,7 +22,7 @@ function Login() {
   const handleLogin = async () => {
     if (!username || !password) return;
     try {
-      const result = await axios.post(`${process.env.REACT_APP_SERVER}profile/login`, {
+      const result = await axios.post(`${process.env.REACT_APP_SERVER}/profile/login`, {
         user: username,
         pass: password
       });
