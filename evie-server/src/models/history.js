@@ -9,6 +9,4 @@ const historySchema = new Schema(
 
 );
 
-module.exports = {
-    Profile: mongoose.model('History', historySchema),
-};
+module.exports = mongoose.model('History', historySchema);

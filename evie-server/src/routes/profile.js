@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const { Profile } = require('../models/profile');
-const { clean } = require('../cleanInput');
+const Profile = require('../models/profile');
+const { clean } = require('../utils/cleanInput');
+
 
 router.put('/create', async(req, res) => {
     const { first_name, last_name, email, user, pass } = req.body;
@@ -36,8 +37,18 @@ router.put('/create', async(req, res) => {
     }
 });
 
+
 router.post('/login', async (req, res) => {
     const { user, pass } = req.body;
+    if (
+        !(
+            user
+            && pass
+        )
+    ) {
+        res.status(400).send("All of user and pass must be provided");
+    }
+
     const userProfile = await Profile.findOne({ user: user, pass: pass });
     
     if (!userProfile) {
@@ -46,6 +57,19 @@ router.post('/login', async (req, res) => {
     }
 
     const { first_name, last_name, experience, level } = userProfile.toJSON();
+    res.status(200).send({
+        first_name,
+        last_name,
+        experience,
+        level
+    });
+});
+
+
+router.get('/:id', async (req, res) => {
+    const reqUser = await Profile.findOne({ _id: req.params.id });
+    if (!reqUser) res.send(404).send("User of given ID was not found.");
+    const { first_name, last_name, experience, level } = reqUser.toJSON();
     res.status(200).send({
         first_name,
         last_name,
