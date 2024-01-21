@@ -4,3 +4,10 @@ html,
 body {
   font-family: $body-font-family;
 }
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-align: center;
+}

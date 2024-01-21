@@ -31,16 +31,31 @@ function Challenges() {
   } = useDisclosure();
 
   const {
+    isOpen: isInfoModalOpen,
+    onOpen: onInfoModalOpen,
+    onClose: onInfoModalClose,
+  } = useDisclosure();
+
+  const {
     isOpen: isSuccessModalOpen,
     onOpen: onSuccessModalOpen,
     onClose: onSuccessModalClose,
   } = useDisclosure();
+
+  // ------------------------------
 
   const {
     isOpen: isCarFreeModalOpen,
     onOpen: onCarFreeModalOpen,
     onClose: onCarFreeModalClose,
   } = useDisclosure();
+
+  const {
+    isOpen: isCarFreeInfoModalOpen,
+    onOpen: onCarFreeInfoModalOpen,
+    onClose: onCarFreeInfoModalClose,
+  } = useDisclosure();
+  // ------------------------------
 
   const {
     isOpen: isRecyclingPlantModalOpen,
@@ -52,7 +67,12 @@ function Challenges() {
     if (count > 0) {
       console.log("Bottles recycled: ", count);
       onBottlesModalClose();
+      onInfoModalClose();
       onSuccessModalOpen();
+    } else {
+      console.log("No bottles recycled.");
+      onBottlesModalClose();
+      onInfoModalClose();
     }
   };
 
@@ -60,9 +80,11 @@ function Challenges() {
     if (document.getElementById("car-free").checked) {
       console.log("Car-free day!");
       onCarFreeModalClose();
+      onCarFreeInfoModalClose();
       onSuccessModalOpen();
     } else {
       console.log("Not car-free day.");
+      onCarFreeInfoModalClose();
       onCarFreeModalClose();
     }
   };
@@ -74,7 +96,29 @@ function Challenges() {
       <h1>Eco Challenges:</h1>
       <p>Click on each challenge to learn more!</p>
       <div className="challenges">
-        <div className="bottle-recycle">
+        <div className="challenge-item bottle-recycle">
+          <Button className="question-mark" onClick={onInfoModalOpen}>
+            ?
+          </Button>
+          <Modal isOpen={isInfoModalOpen} onClose={onInfoModalClose}>
+            <ModalOverlay />
+            <ModalContent>
+              <ModalHeader>Challenge Information</ModalHeader>
+              <ModalCloseButton />
+              <ModalBody>
+                <Text>For each item recycled, you will gain 50 EXP.</Text>
+                <Text as="i">
+                  *This is a daily challenge. Check-in every day to log the
+                  number of items recycled.
+                </Text>
+              </ModalBody>
+              <ModalFooter>
+                <Button onClick={onBottlesModalOpen} backgroundColor="#78944c">
+                  Click here to log!
+                </Button>
+              </ModalFooter>
+            </ModalContent>
+          </Modal>
           <h2>Bottles Recycled</h2>
           <Button onClick={onBottlesModalOpen}>daily challenge</Button>
           <Modal isOpen={isBottlesModalOpen} onClose={onBottlesModalClose}>
@@ -129,7 +173,29 @@ function Challenges() {
             </ModalContent>
           </Modal>
         </div>
-        <div className="car-free-day">
+        <div className="challenge-item car-free-day">
+          <Button className="question-mark" onClick={onCarFreeInfoModalOpen}>
+            ?
+          </Button>
+          <Modal
+            isOpen={isCarFreeInfoModalOpen}
+            onClose={onCarFreeInfoModalClose}
+          >
+            <ModalOverlay />
+            <ModalContent>
+              <ModalHeader>Challenge Information</ModalHeader>
+              <ModalCloseButton />
+              <ModalBody>
+                <Text>For every car-free day, you will gain 1000 EXP.</Text>
+                <Text as="i">*This is a weekly challenge.</Text>
+              </ModalBody>
+              <ModalFooter>
+                <Button onClick={onCarFreeModalOpen} backgroundColor="#78944c">
+                  Click here to log!
+                </Button>
+              </ModalFooter>
+            </ModalContent>
+          </Modal>
           <h2>Car-Free Day</h2>
           <Button onClick={onCarFreeModalOpen}>weekly challenge</Button>
           <Modal isOpen={isCarFreeModalOpen} onClose={onCarFreeModalClose}>
@@ -157,7 +223,8 @@ function Challenges() {
             </ModalContent>
           </Modal>
         </div>
-        <div className="recycling-plant">
+        <div className="challenge-item recycling-plant">
+          <div className="question-mark">?</div>
           <h2>Recycling Plant</h2>
           <Button onClick={onRecyclingPlantModalOpen}>weekly challenge</Button>
           <Modal
