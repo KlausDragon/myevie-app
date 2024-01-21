@@ -6,6 +6,7 @@ import Challenges from "./pages/Challenges";
 import Help from "./pages/Help";
 import MyEvie from "./pages/myEvie";
 import Calendar from "./pages/Calendar";
+import Friends from "./pages/Friends";
 
 function AppRouter() {
   return (
@@ -18,6 +19,7 @@ function AppRouter() {
         <Route path="/help" element={<Help />} />
         <Route path="/myevie" element={<MyEvie />} />
         <Route path="/calendar" element={<Calendar />} />
+        <Route path="/social" element={<Friends />} />
       </Routes>
     </BrowserRouter>
   );
