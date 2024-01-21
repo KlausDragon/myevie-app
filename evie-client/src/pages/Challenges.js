@@ -91,7 +91,7 @@ function Challenges() {
       onCarFreeModalClose();
     }
   };
-   
+
   const submitRecyclingPlant = () => {};
 
   return (
