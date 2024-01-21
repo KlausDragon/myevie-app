@@ -43,7 +43,7 @@ function Nav() {
             <span>Social</span>
           </a>
         </li>
-        <li>
+        <li className="exp-list">
           <a href="./myevie">
             <img src={ExpIcon} alt="EXP"/>
           </a>
