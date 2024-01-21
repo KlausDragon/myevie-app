@@ -4,6 +4,7 @@ import MyEvieIcon from "../media/nav/tree-icon.svg";
 import CalendarIcon from "../media/nav/calendar-icon.svg";
 import HelpIcon from "../media/nav/help-icon.svg";
 import SocialIcon from "../media/nav/social-icon.svg";
+import { useNavigate } from "react-router-dom";
 
 function Nav() {
   const navigate = useNavigate();

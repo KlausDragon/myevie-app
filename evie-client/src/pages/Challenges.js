@@ -5,11 +5,12 @@ import { useState, useEffect, useContext } from "react";
 import { Button } from "@chakra-ui/react";
 import { ProfileContext } from "../index";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Challenges() {
   const profile = useContext(ProfileContext);
   const [challenges, setChallenges] = useState(null);
-
+  const navigate = useNavigate();
   const [showDialog, setShowDialog] = useState(null);
 
   useEffect(() => {
