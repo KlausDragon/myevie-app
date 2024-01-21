@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Nav from "../components/Nav";
 import "../scss/_myevie.scss";
 import evieChild from "../media/evie-1.svg";
@@ -6,34 +6,38 @@ import evieTeen from "../media/evie-2.svg";
 import evieAdult from "../media/evie-3.svg";
 import chatBubble from "../media/chat-bubble.svg";
 import { CircularProgress, CircularProgressLabel } from '@chakra-ui/react';
+import { ProfileContext } from '..';
+import { useNavigate } from 'react-router-dom';
 
 function MyEvie() {
-  const [level, setLevel] = useState(10);
-  const [xp, setXP] = useState(50);
   const [evieImage, setEvieImage] = useState(evieChild);
 
-  useEffect(() => {
-    const totalXPinLevel = Math.floor(110 * (level ** 1.7));
-    console.log('XP:', xp);
+  const profile = useContext(ProfileContext);
 
-    if (level === 10) {
+  useEffect(() => {
+
+    if (profile.level === 10) {
       setEvieImage(evieTeen);
-    } else if (level === 20) {
+    } else if (profile.level === 20) {
       setEvieImage(evieAdult);
     }
-  }, [level]);
+  }, [profile.level]);
   
+  const navigate = useNavigate();
+  if (!profile.firstName) {
+    navigate('/login');
+  }
 
   return (
     <div className="profile-wrapper">
-      <h1>Evie</h1>
-      <p className="lvl">LVL: {level}</p>
+      <h1>{`${profile['first_name']}'s Evie`}</h1>
+      <p className="lvl">LVL: {profile.level}</p>
       <div className="chat-bubble">
         <img src={chatBubble} alt="chat bubble with text"/>
       </div>
       <div className="circular-progress-container">
         <CircularProgress
-          value={Math.ceil(xp / (Math.floor(110 * (level ** 1.7))) * 100)}
+          value={Math.ceil(profile.experience / (Math.floor(150 + 110 * (profile.level ** 1.7))) * 100)}
           color="green.400"
           className="circular-progress"
           size={{ base: '15rem', sm: '20rem', md: '30rem', lg: '40rem', xl: '50rem' }}
@@ -45,7 +49,7 @@ function MyEvie() {
       </div>
       <div className="owner">
         <h2 className="owner-heading">Owner:</h2>
-        <p className="owner-name">John Smith</p>
+        <p className="owner-name">{`${profile['first_name']} ${profile['last_name']}`}</p>
       </div>
       <br></br>
       <div className="total-challenge">
